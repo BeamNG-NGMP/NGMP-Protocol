@@ -13,27 +13,59 @@ TODO: Provide an example packet here.
 2. S->L - Confirmation packet
 3. L->S - Authentication packet
 4. S->L - Confirmation packet
+5. S->L - HttpInfo packet
+6. S->L - Modlist packet
+7. L->S - Confirmation packet
+100. S->L - LoadMap packet
 
 
 ## Packet types
 ### Generic
 **Confirmation packet**<br>
+Protocol: TCP/UDP<br>
 Identifier: CC
 ```
-packet_id:      uint16
+confirm_id:     uint16
 ```
 
 ### Connection
 **Version packet**<br>
+Protocol: TCP<br>
 Identifier: VC
 ```
-packet_id:      uint16
+confirm_id:     uint16
 client_version: uint16
 ```
 
 **Authentication packet**<br>
-Identifier: AA
+Protocol: TCP<br>
+Identifier: AC
 ```
-packet_id:      uint16
+confirm_id:     uint16
 auth_code:      char-array
 ```
+
+### Post-auth connection
+**HttpInfo packet**<br>
+Protocol: TCP<br>
+Identifier: HI
+```
+http_port:      uint16
+```
+
+**Modlist packet**<br>
+Protocol: TCP<br>
+Identifier: ML
+```
+confirm_id:     uint16
+mod_list:       char-array
+```
+Note: The modlist is simply a list of filenames (minus the .zip extension) concatenated together, separated by semicolons.
+
+**LoadMap packet**<br>
+Protocol: TCP<br>
+Identifier: LM
+```
+map_string:     char-array
+```
+Note: The map-string should look something like "/levels/west_coast_usa/info.json"
