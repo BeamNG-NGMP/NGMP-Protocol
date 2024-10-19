@@ -16,7 +16,8 @@ TODO: Provide an example packet here.
 5. S->L - HttpInfo packet
 6. S->L - Modlist packet
 7. L->S - Confirmation packet
-100. S->L - LoadMap packet
+8. S->L - LoadMap packet
+9. L->S - Confirmation packet
 
 
 ## Packet types
@@ -66,6 +67,7 @@ Note: The modlist is simply a list of filenames (minus the .zip extension) conca
 Protocol: TCP<br>
 Identifier: LM
 ```
+confirm_id:     uint16
 map_string:     char-array
 ```
 Note: The map-string should look something like "/levels/west_coast_usa/info.json"
