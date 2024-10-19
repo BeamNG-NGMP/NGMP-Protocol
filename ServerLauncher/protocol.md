@@ -28,7 +28,7 @@ Identifier: CC
 confirm_id:     uint16
 ```
 
-### Connection
+### Handshake/early connection
 **Version packet**<br>
 Protocol: TCP<br>
 Identifier: VC
@@ -53,7 +53,7 @@ Identifier: HI
 http_port:      uint16
 ```
 
-**Modlist packet**<br>
+**Mod List packet**<br>
 Protocol: TCP<br>
 Identifier: ML
 ```
