@@ -27,7 +27,7 @@ TODO: Provide an example packet here.
 Protocol: TCP/UDP<br>
 Identifier: CC
 ```
-confirm_id:     uint16
+confirm_id:         uint16
 ```
 
 ### Handshake/early connection
@@ -35,16 +35,16 @@ confirm_id:     uint16
 Protocol: TCP<br>
 Identifier: VC
 ```
-confirm_id:     uint16
-client_version: uint16
+confirm_id:         uint16
+protocol_version:   uint16
 ```
 
 **Authentication packet**<br>
 Protocol: TCP<br>
 Identifier: AC
 ```
-confirm_id:     uint16
-auth_code:      char-array
+confirm_id:         uint16
+auth_code:          char-array
 ```
 
 ### Post-auth connection
@@ -52,16 +52,16 @@ auth_code:      char-array
 Protocol: TCP<br>
 Identifier: HI
 ```
-http_port:      uint16
-udp_port:       uint16
+http_port:          uint16
+udp_port:           uint16
 ```
 
 **Mod List packet**<br>
 Protocol: TCP<br>
 Identifier: ML
 ```
-confirm_id:     uint16
-mod_list:       char-array
+confirm_id:         uint16
+mod_list:           char-array
 ```
 Note: The modlist is simply a list of filenames (minus the .zip extension) concatenated together, separated by semicolons.
 
@@ -69,7 +69,7 @@ Note: The modlist is simply a list of filenames (minus the .zip extension) conca
 Protocol: TCP<br>
 Identifier: LM
 ```
-confirm_id:     uint16
-map_string:     char-array
+confirm_id:         uint16
+map_string:         char-array
 ```
 Note: The map-string should look something like "/levels/west_coast_usa/info.json"

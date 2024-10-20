@@ -32,7 +32,11 @@ TODO: Provide an example packet here.
 Protocol: TCP/UDP<br>
 Identifier: CC
 ```
+<<<<<<< HEAD
 confirm_id:       uint16
+=======
+confirm_id:         uint16
+>>>>>>> e2e676b (client_version -> protocol_version)
 ```
 
 ### Handshake/early connection
@@ -40,17 +44,22 @@ confirm_id:       uint16
 Protocol: TCP<br>
 Identifier: VC
 ```
+<<<<<<< HEAD
 confirm_id:       uint16
 protocol_version: uint16
+=======
+confirm_id:         uint16
+protocol_version:   uint16
+>>>>>>> e2e676b (client_version -> protocol_version)
 ```
 
 **Authentication info packet**<br>
 Protocol: TCP<br>
 Identifier: AI
 ```
-confirm_id:       uint16
-success:          bool
-player_name:      char-array
+confirm_id:         uint16
+success:            bool
+player_name:        char-array
 ```
 Note: This should never contain any important data as the authenticator is Steam.
 Authentication is handled solely by the Launcher. The client receives this packet for cosmetic reasons.
@@ -60,8 +69,8 @@ Authentication is handled solely by the Launcher. The client receives this packe
 Protocol: TCP<br>
 Identifier: HL
 ```
-confirm_id:       uint16
-ip_addresses:     char-array-array
+confirm_id:         uint16
+ip_addresses:       char-array-array
 ```
 Note: ^ TODO
 
@@ -69,16 +78,16 @@ Note: ^ TODO
 Protocol: TCP<br>
 Identifier: HJ
 ```
-confirm_id:       uint16
-ip_address:       char-array
+confirm_id:         uint16
+ip_address:         char-array
 ```
 
 **ModList packet**<br>
 Protocol: TCP<br>
 Identifier: ML
 ```
-confirm_id:       uint16
-mod_list:         char-array
+confirm_id:         uint16
+mod_list:           char-array
 ```
 Note: The modlist is simply a list of filenames (minus the .zip extension) concatenated together, separated by semicolons.
 
@@ -86,8 +95,8 @@ Note: The modlist is simply a list of filenames (minus the .zip extension) conca
 Protocol: TCP<br>
 Identifier: LM
 ```
-confirm_id:       uint16
-map_string:       char-array
+confirm_id:         uint16
+map_string:         char-array
 ```
 Note: The map-string should look something like "/levels/west_coast_usa/info.json"
 
@@ -95,9 +104,8 @@ Note: The map-string should look something like "/levels/west_coast_usa/info.jso
 Protocol: TCP<br>
 Identifier: MR
 ```
-confirm_id:       uint16
-mod_name:         char-array
-progress:         uint8
+confirm_id:         uint16
+mod_name:           char-array
+progress:           uint8
 ```
-Note: Progress is an integer from 0-100 in %. 100% means ready to mount.
-
+Note: Progress is in %. 100% means ready to mount.
