@@ -13,11 +13,12 @@ TODO: Provide an example packet here.
 2. S->L - Confirmation packet
 3. L->S - Authentication packet
 4. S->L - Confirmation packet
-5. S->L - HttpInfo packet
+5. S->L - ServerInfo packet
 6. S->L - Modlist packet
 7. L->S - Confirmation packet
-8. S->L - LoadMap packet
-9. L->S - Confirmation packet
+8. L->S - Connect UDP connection
+9. S->L - LoadMap packet
+10. L->S - Confirmation packet
 
 
 ## Packet types
@@ -47,11 +48,12 @@ auth_code:      char-array
 ```
 
 ### Post-auth connection
-**HttpInfo packet**<br>
+**ServerInfo packet**<br>
 Protocol: TCP<br>
 Identifier: HI
 ```
 http_port:      uint16
+udp_port:       uint16
 ```
 
 **Mod List packet**<br>
