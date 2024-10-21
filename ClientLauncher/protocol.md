@@ -11,19 +11,20 @@ TODO: Provide an example packet here.
 
 ## Connection flow
 1. L->C - Version packet
-2. L->C - Authentication info packet
-3. L->C - ServerList packet
-4. C->L - JoinServer packet
-5. L->C - ModList packet
+2. C->L - ClientInfo packet
+3. L->C - AuthenticationInfo packet
+4. L->C - ServerList packet
+5. C->L - JoinServer packet
+6. L->C - ModList packet
 
 <- Repeat if needed ->
 
-6. L->C - ModProgress packet
+7. L->C - ModProgress packet
 
 <-->
 
-7. L->C - LoadMap packet
-8. C->L - Confirmation packet
+8. L->C - LoadMap packet
+9. C->L - Confirmation packet
 
 
 ## Packet types
@@ -32,11 +33,7 @@ TODO: Provide an example packet here.
 Protocol: TCP/UDP<br>
 Identifier: CC
 ```
-<<<<<<< HEAD
-confirm_id:       uint16
-=======
 confirm_id:         uint16
->>>>>>> e2e676b (client_version -> protocol_version)
 ```
 
 ### Handshake/early connection
@@ -44,16 +41,20 @@ confirm_id:         uint16
 Protocol: TCP<br>
 Identifier: VC
 ```
-<<<<<<< HEAD
-confirm_id:       uint16
-protocol_version: uint16
-=======
 confirm_id:         uint16
 protocol_version:   uint16
->>>>>>> e2e676b (client_version -> protocol_version)
 ```
 
-**Authentication info packet**<br>
+**ClientInfo packet**<br>
+Protocol: TCP<br>
+Identifier: CI
+```
+confirm_id:         uint16
+userfolder:         char-array
+client_version:     uint16
+```
+
+**AuthenticationInfo packet**<br>
 Protocol: TCP<br>
 Identifier: AI
 ```
