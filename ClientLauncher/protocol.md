@@ -16,15 +16,16 @@ TODO: Provide an example packet here.
 4. L->C - ServerList packet
 5. C->L - JoinServer packet
 6. L->C - ModList packet
+7. C->L - ModList packet
 
 <- Repeat if needed ->
 
-7. L->C - ModProgress packet
+8. L->C - ModProgress packet
 
 <-->
 
-8. L->C - LoadMap packet
-9. C->L - Confirmation packet
+9. L->C - LoadMap packet
+10. C->L - Confirmation packet
 
 
 ## Packet types
@@ -90,7 +91,8 @@ Identifier: ML
 confirm_id:         uint16
 mod_list:           char-array
 ```
-Note: The modlist is simply a list of filenames (minus the .zip extension) concatenated together, separated by semicolons.
+Note: The modlist is a list of filenames (minus the .zip extension) and the respective SHA-256 hash concatenated together, separated by colons for one mod and split up by slashes.
+This is reused for two-way communication.
 
 **LoadMap packet**<br>
 Protocol: TCP<br>
@@ -101,9 +103,18 @@ map_string:         char-array
 ```
 Note: The map-string should look something like "/levels/west_coast_usa/info.json"
 
+**ModRequest packet**<br>
+Protocol: TCP<br>
+Identifier: MP
+```
+confirm_id:         uint16
+mod_name:           char-array
+progress:           uint8
+```
+
 **ModProgress packet**<br>
 Protocol: TCP<br>
-Identifier: MR
+Identifier: MP
 ```
 confirm_id:         uint16
 mod_name:           char-array
