@@ -6,27 +6,24 @@ All packets follow the same basic design.
 This header starts with 2 bytes containing a unique packet identifier (2 UTF8 characters), followed by 4 bytes containing the packet length as an unsigned 32 bit integer, stored in Little Endian order.
 All actual data is an lpack-encoded string to reduce client computation requirements by as much as possible.
 
+The launcher also hosts an HTTP server that the client is free to use for GET and POST requests.
+
 TODO: Provide an example packet here.
 
 
 ## Connection flow
+### Startup
 1. C->L - ClientInfo packet
 2. L->C - Version packet
 3. L->C - AuthenticationInfo packet
-4. L->C - ServerList packet
-5. C->L - JoinServer packet
-6. L->C - ModList packet
-7. C->L - ModList packet
 
-<- Repeat if needed ->
-
-8. L->C - ModProgress packet
-
-<-->
-
-9. L->C - LoadMap packet
-10. C->L - Confirmation packet
-
+### Join Server
+1. C->L - JoinServer packet
+2. L->C - ModList packet
+3. C->L - ModList packet
+4. L->C - ModProgress packet (Repeat if needed)
+5. L->C - LoadMap packet
+6. C->L - Confirmation packet
 
 ## Packet types
 ### Generic
