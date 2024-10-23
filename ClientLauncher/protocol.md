@@ -25,6 +25,9 @@ TODO: Provide an example packet here.
 5. L->C - LoadMap packet
 6. C->L - Confirmation packet
 
+### Leave Server
+1. C->L - ExitServer packet
+
 ## Packet types
 ### Generic
 **Confirmation packet**<br>
@@ -93,6 +96,14 @@ Format: Binary
 ```
 confirm_id:         uint16
 ip_address:         char-array
+```
+
+**ExitServer packet**<br>
+Protocol: UDP<br>
+Identifier: HX<br>
+Format: Binary
+```
+confirm_id:         uint16
 ```
 
 **LoadMap packet**<br>
