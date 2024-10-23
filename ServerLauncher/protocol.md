@@ -14,10 +14,9 @@ TODO: Provide an example packet here.
 3. L->S - Authentication packet
 4. S->L - Confirmation packet
 5. S->L - ServerInfo packet
-6. L->S - Confirmation packet
-7. L->S - UDPAddr packet
-8. S->L - LoadMap packet
-9. L->S - Confirmation packet
+6. L->S - UDPAddr packet
+7. S->L - LoadMap packet
+8. L->S - Confirmation packet
 
 
 ## Packet types
