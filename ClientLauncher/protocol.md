@@ -19,7 +19,7 @@ TODO: Provide an example packet here.
 
 ### Join Server
 1. C->L - JoinServer packet
-2. L->C - ServerInfo packet
+2. L->C - ServerInfo packet (or ConnectionError packet)
 3. C->L - ModRequest packet (Repeat if needed)
 4. L->C - ModProgress packet (Repeat if needed)
 5. L->C - LoadMap packet
@@ -68,6 +68,15 @@ Note: This should never contain any important data as the authenticator is Steam
 Authentication is handled solely by the Launcher. The client receives this packet for cosmetic reasons.
 
 ### Post-auth connection
+**ConnectionError packet**<br>
+Protocol: UDP<br>
+Identifier: CE<br>
+Format: Binary
+```
+confirm_id:         uint16
+error:              char-array
+```
+
 **ServerInfo packet**<br>
 Protocol: UDP<br>
 Identifier: HI<br>
