@@ -3,7 +3,7 @@
 ## Packet design
 All packets follow the same basic design.
 **Packets always start with a standardized header.**<br>
-This header starts with **4 bytes** containing the packet length (unsigned 32 bit integer, little endian), followed by 2 bytes containing a unique packet identifier (2 ascii characters) to inform the receiver what packet it is.
+This header starts with 2 bytes containing a unique packet identifier (2 UTF8 characters), followed by 4 bytes containing the packet length as an unsigned 32 bit integer, stored in Little Endian order.
 All actual data is an lpack-encoded string to reduce client computation requirements by as much as possible.
 
 TODO: Provide an example packet here.
