@@ -32,7 +32,7 @@ TODO: Provide an example packet here.
 ### Generic
 **Confirmation packet**<br>
 Protocol: TCP/UDP<br>
-Identifier: CC
+Identifier: CC<br>
 Format: Binary
 ```
 confirm_id:         uint16
@@ -41,7 +41,7 @@ confirm_id:         uint16
 ### Handshake/early connection
 **Version packet**<br>
 Protocol: TCP<br>
-Identifier: VC
+Identifier: VC<br>
 Format: Binary
 ```
 confirm_id:         uint16
@@ -50,7 +50,7 @@ protocol_version:   uint16
 
 **ClientInfo packet**<br>
 Protocol: TCP<br>
-Identifier: CI
+Identifier: CI<br>
 Format: JSON
 ```
 confirm_id:         uint16
@@ -60,7 +60,7 @@ userfolder:         char-array
 
 **AuthenticationInfo packet**<br>
 Protocol: TCP<br>
-Identifier: AI
+Identifier: AI<br>
 Format: JSON
 ```
 confirm_id:         uint16
@@ -73,7 +73,7 @@ Authentication is handled solely by the Launcher. The client receives this packe
 ### Post-auth connection
 **ServerList packet**<br>
 Protocol: TCP<br>
-Identifier: HL
+Identifier: HL<br>
 Format:
 ```
 confirm_id:         uint16
@@ -83,7 +83,7 @@ Note: ^ TODO
 
 **JoinServer packet**<br>
 Protocol: TCP<br>
-Identifier: HJ
+Identifier: HJ<br>
 Format: Binary
 ```
 confirm_id:         uint16
@@ -92,7 +92,7 @@ ip_address:         char-array
 
 **ModList packet**<br>
 Protocol: TCP<br>
-Identifier: ML
+Identifier: ML<br>
 Format: Binary
 ```
 confirm_id:         uint16
@@ -103,7 +103,7 @@ This is reused for two-way communication.
 
 **LoadMap packet**<br>
 Protocol: TCP<br>
-Identifier: LM
+Identifier: LM<br>
 Format: Binary
 ```
 confirm_id:         uint16
@@ -113,7 +113,7 @@ Note: The map-string should look something like "/levels/west_coast_usa/info.jso
 
 **ModProgress packet**<br>
 Protocol: TCP<br>
-Identifier: MP
+Identifier: MP<br>
 Format: JSON
 ```
 confirm_id:         uint16
