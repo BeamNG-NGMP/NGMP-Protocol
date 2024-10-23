@@ -33,6 +33,7 @@ TODO: Provide an example packet here.
 **Confirmation packet**<br>
 Protocol: TCP/UDP<br>
 Identifier: CC
+Format: Binary
 ```
 confirm_id:         uint16
 ```
@@ -41,6 +42,7 @@ confirm_id:         uint16
 **Version packet**<br>
 Protocol: TCP<br>
 Identifier: VC
+Format: Binary
 ```
 confirm_id:         uint16
 protocol_version:   uint16
@@ -49,15 +51,17 @@ protocol_version:   uint16
 **ClientInfo packet**<br>
 Protocol: TCP<br>
 Identifier: CI
+Format: JSON
 ```
 confirm_id:         uint16
-userfolder:         char-array
 client_version:     uint16
+userfolder:         char-array
 ```
 
 **AuthenticationInfo packet**<br>
 Protocol: TCP<br>
 Identifier: AI
+Format: JSON
 ```
 confirm_id:         uint16
 success:            bool
@@ -70,6 +74,7 @@ Authentication is handled solely by the Launcher. The client receives this packe
 **ServerList packet**<br>
 Protocol: TCP<br>
 Identifier: HL
+Format:
 ```
 confirm_id:         uint16
 ip_addresses:       char-array-array
@@ -79,6 +84,7 @@ Note: ^ TODO
 **JoinServer packet**<br>
 Protocol: TCP<br>
 Identifier: HJ
+Format: Binary
 ```
 confirm_id:         uint16
 ip_address:         char-array
@@ -87,6 +93,7 @@ ip_address:         char-array
 **ModList packet**<br>
 Protocol: TCP<br>
 Identifier: ML
+Format: Binary
 ```
 confirm_id:         uint16
 mod_list:           char-array
@@ -97,27 +104,20 @@ This is reused for two-way communication.
 **LoadMap packet**<br>
 Protocol: TCP<br>
 Identifier: LM
+Format: Binary
 ```
 confirm_id:         uint16
 map_string:         char-array
 ```
 Note: The map-string should look something like "/levels/west_coast_usa/info.json"
 
-**ModRequest packet**<br>
-Protocol: TCP<br>
-Identifier: MP
-```
-confirm_id:         uint16
-mod_name:           char-array
-progress:           uint8
-```
-
 **ModProgress packet**<br>
 Protocol: TCP<br>
 Identifier: MP
+Format: JSON
 ```
 confirm_id:         uint16
-mod_name:           char-array
 progress:           uint8
+mod_name:           char-array
 ```
 Note: Progress is in %. 100% means ready to mount.
