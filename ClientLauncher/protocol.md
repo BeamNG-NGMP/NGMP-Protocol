@@ -10,8 +10,8 @@ TODO: Provide an example packet here.
 
 
 ## Connection flow
-1. L->C - Version packet
-2. C->L - ClientInfo packet
+1. C->L - ClientInfo packet
+2. L->C - Version packet
 3. L->C - AuthenticationInfo packet
 4. L->C - ServerList packet
 5. C->L - JoinServer packet
