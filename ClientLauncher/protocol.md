@@ -19,11 +19,9 @@ TODO: Provide an example packet here.
 
 ### Join Server
 1. C->L - JoinServer packet
-2. L->C - ModList packet
-3. C->L - ModList packet
-4. L->C - ModProgress packet (Repeat if needed)
-5. L->C - LoadMap packet
-6. C->L - Confirmation packet
+2. L->C - ModProgress packet (Repeat if needed)
+3. L->C - LoadMap packet
+4. C->L - Confirmation packet
 
 ## Packet types
 ### Generic
