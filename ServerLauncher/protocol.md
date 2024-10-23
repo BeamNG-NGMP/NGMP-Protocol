@@ -14,11 +14,10 @@ TODO: Provide an example packet here.
 3. L->S - Authentication packet
 4. S->L - Confirmation packet
 5. S->L - ServerInfo packet
-6. S->L - Modlist packet
-7. L->S - Confirmation packet
-8. L->S - Connect UDP connection
-9. S->L - LoadMap packet
-10. L->S - Confirmation packet
+6. L->S - Confirmation packet
+7. L->S - UDPAddr packet
+8. S->L - LoadMap packet
+9. L->S - Confirmation packet
 
 
 ## Packet types
@@ -56,15 +55,6 @@ http_port:          uint16
 udp_port:           uint16
 ```
 
-**Mod List packet**<br>
-Protocol: TCP<br>
-Identifier: ML
-```
-confirm_id:         uint16
-mod_list:           char-array
-```
-Note: The modlist is simply a list of filenames (minus the .zip extension) concatenated together, separated by semicolons.
-
 **LoadMap packet**<br>
 Protocol: TCP<br>
 Identifier: LM
@@ -73,3 +63,10 @@ confirm_id:         uint16
 map_string:         char-array
 ```
 Note: The map-string should look something like "/levels/west_coast_usa/info.json"
+
+**UDPAddr packet**<br>
+Protocol: TCP<br>
+Identifier: UA
+```
+udp_addr:           char-array
+```
