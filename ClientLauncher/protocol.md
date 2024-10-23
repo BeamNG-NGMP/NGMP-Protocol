@@ -19,14 +19,16 @@ TODO: Provide an example packet here.
 
 ### Join Server
 1. C->L - JoinServer packet
-2. L->C - ModProgress packet (Repeat if needed)
-3. L->C - LoadMap packet
-4. C->L - Confirmation packet
+2. L->C - ServerInfo packet
+3. C->L - ModRequest packet (Repeat if needed)
+4. L->C - ModProgress packet (Repeat if needed)
+5. L->C - LoadMap packet
+6. C->L - Confirmation packet
 
 ## Packet types
 ### Generic
 **Confirmation packet**<br>
-Protocol: TCP/UDP<br>
+Protocol: UDP/UDP<br>
 Identifier: CC<br>
 Format: Binary
 ```
@@ -35,7 +37,7 @@ confirm_id:         uint16
 
 ### Handshake/early connection
 **Version packet**<br>
-Protocol: TCP<br>
+Protocol: UDP<br>
 Identifier: VC<br>
 Format: Binary
 ```
@@ -44,7 +46,7 @@ protocol_version:   uint16
 ```
 
 **ClientInfo packet**<br>
-Protocol: TCP<br>
+Protocol: UDP<br>
 Identifier: CI<br>
 Format: JSON
 ```
@@ -54,7 +56,7 @@ userfolder:         char-array
 ```
 
 **AuthenticationInfo packet**<br>
-Protocol: TCP<br>
+Protocol: UDP<br>
 Identifier: AI<br>
 Format: JSON
 ```
@@ -66,18 +68,17 @@ Note: This should never contain any important data as the authenticator is Steam
 Authentication is handled solely by the Launcher. The client receives this packet for cosmetic reasons.
 
 ### Post-auth connection
-**ServerList packet**<br>
-Protocol: TCP<br>
-Identifier: HL<br>
-Format:
+**ServerInfo packet**<br>
+Protocol: UDP<br>
+Identifier: HI<br>
+Format: Binary
 ```
 confirm_id:         uint16
-ip_addresses:       char-array-array
+http_port:          uint16
 ```
-Note: ^ TODO
 
 **JoinServer packet**<br>
-Protocol: TCP<br>
+Protocol: UDP<br>
 Identifier: HJ<br>
 Format: Binary
 ```
@@ -85,19 +86,8 @@ confirm_id:         uint16
 ip_address:         char-array
 ```
 
-**ModList packet**<br>
-Protocol: TCP<br>
-Identifier: ML<br>
-Format: Binary
-```
-confirm_id:         uint16
-mod_list:           char-array
-```
-Note: The modlist is a list of filenames (minus the .zip extension) and the respective SHA-256 hash concatenated together, separated by colons for one mod and split up by slashes.
-This is reused for two-way communication.
-
 **LoadMap packet**<br>
-Protocol: TCP<br>
+Protocol: UDP<br>
 Identifier: LM<br>
 Format: Binary
 ```
@@ -106,8 +96,17 @@ map_string:         char-array
 ```
 Note: The map-string should look something like "/levels/west_coast_usa/info.json"
 
+**ModRequest packet**<br>
+Protocol: UDP<br>
+Identifier: MR<br>
+Format: Binary
+```
+confirm_id:         uint16
+mod_name:           char-array
+```
+
 **ModProgress packet**<br>
-Protocol: TCP<br>
+Protocol: UDP<br>
 Identifier: MP<br>
 Format: JSON
 ```
