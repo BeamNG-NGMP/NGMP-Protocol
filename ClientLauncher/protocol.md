@@ -89,15 +89,6 @@ confirm_id:         uint16
 http_port:          uint16
 ```
 
-**JoinServer packet**<br>
-Protocol: UDP<br>
-Identifier: HJ<br>
-Format: Binary
-```
-confirm_id:         uint16
-ip_address:         char-array
-```
-
 **ExitServer packet**<br>
 Protocol: UDP<br>
 Identifier: HX<br>
