@@ -162,3 +162,20 @@ Identifier: VS
 confirm_id:         uint16
 vehicle_data:       char-array (json)
 ```
+
+**VehicleUpdate packet**<br>
+Protocol: TCP<br>
+Identifier: VU
+```
+confirm_id:         uint16
+vehicle_data:       char-array (json)
+```
+
+**VehicleDisplay packet**<br>
+Protocol: TCP<br>
+Identifier: VD
+```
+confirm_id:         uint16
+vehicle_data:       char-array (json)
+```
+Note: This is for license plate and paints.
