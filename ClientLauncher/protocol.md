@@ -71,6 +71,15 @@ Note: This should never contain any important data as the authenticator is Steam
 Authentication is handled solely by the Launcher. The client receives this packet for cosmetic reasons.
 
 ### Post-auth connection
+**JoinServer packet**<br>
+Protocol: UDP<br>
+Identifier: HJ<br>
+Format: Binary
+```
+confirm_id:         uint16
+ip_address:         char-array
+```
+
 **ConnectionError packet**<br>
 Protocol: UDP<br>
 Identifier: CE<br>
