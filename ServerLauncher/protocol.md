@@ -63,13 +63,21 @@ map_string:         char-array
 Note: The map-string should look something like "/levels/west_coast_usa/info.json"
 
 ### Server Data
-**PlayerList packet**<br>
+**PlayerData packet**<br>
 Protocol: TCP<br>
-Identifier: PL
+Identifier: PD
+```json
+{
+    "players": []
+}
 ```
-player_list:        char-array (json)
+Note: Each entry in the player list looks as following:
+```json
+{
+    "name": "big gaming 123",
+    "steam_id": 890123489189
+}
 ```
-Note: Each entry in the player list contains their username and ping to the server
 
 ### Gameplay
 **VehicleSpawn packet**<br>
