@@ -65,6 +65,7 @@ Format: JSON
 ```
 confirm_id:         uint16
 success:            bool
+steam_id:           uint64
 player_name:        char-array
 ```
 Note: This should never contain any important data as the authenticator is Steam.
