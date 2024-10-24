@@ -135,3 +135,29 @@ progress:           uint8
 mod_name:           char-array
 ```
 Note: Progress is in %. 100% means ready to mount.
+
+### Server Data
+**PlayerData packet**<br>
+Protocol: TCP<br>
+Identifier: PD
+```json
+{
+    "players": []
+}
+```
+Note: Each entry in the player list looks as following:
+```json
+{
+    "name": "big gaming 123",
+    "steam_id": 890123489189
+}
+```
+
+### Gameplay
+**VehicleSpawn packet**<br>
+Protocol: TCP<br>
+Identifier: VS
+```
+confirm_id:         uint16
+vehicle_data:       char-array (json)
+```
