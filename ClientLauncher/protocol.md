@@ -39,7 +39,6 @@ TODO: Provide an example packet here.
 ## Packet types
 ### Generic
 **Confirmation packet**<br>
-Protocol: UDP/UDP<br>
 Identifier: CC<br>
 Format: Binary
 ```
@@ -48,7 +47,6 @@ confirm_id:         uint16
 
 ### Handshake/early connection
 **Version packet**<br>
-Protocol: UDP<br>
 Identifier: VC<br>
 Format: Binary
 ```
@@ -57,7 +55,6 @@ protocol_version:   uint16
 ```
 
 **ClientInfo packet**<br>
-Protocol: UDP<br>
 Identifier: CI<br>
 Format: JSON
 ```
@@ -67,7 +64,6 @@ userfolder:         char-array
 ```
 
 **AuthenticationInfo packet**<br>
-Protocol: UDP<br>
 Identifier: AI<br>
 Format: JSON
 ```
@@ -81,7 +77,6 @@ Authentication is handled solely by the Launcher. The client receives this packe
 
 ### Post-auth connection
 **JoinServer packet**<br>
-Protocol: UDP<br>
 Identifier: HJ<br>
 Format: Binary
 ```
@@ -90,7 +85,6 @@ ip_address:         char-array
 ```
 
 **ConnectionError packet**<br>
-Protocol: UDP<br>
 Identifier: CE<br>
 Format: Binary
 ```
@@ -99,7 +93,6 @@ error:              char-array
 ```
 
 **ServerInfo packet**<br>
-Protocol: UDP<br>
 Identifier: HI<br>
 Format: Binary
 ```
@@ -108,7 +101,6 @@ http_port:          uint16
 ```
 
 **ExitServer packet**<br>
-Protocol: UDP<br>
 Identifier: HX<br>
 Format: Binary
 ```
@@ -116,7 +108,6 @@ confirm_id:         uint16
 ```
 
 **LoadMap packet**<br>
-Protocol: UDP<br>
 Identifier: LM<br>
 Format: Binary
 ```
@@ -126,7 +117,6 @@ map_string:         char-array
 Note: The map-string should look something like "/levels/west_coast_usa/info.json"
 
 **ModRequest packet**<br>
-Protocol: UDP<br>
 Identifier: MR<br>
 Format: Binary
 ```
@@ -135,11 +125,9 @@ mod_name:           char-array
 ```
 
 **ModProgress packet**<br>
-Protocol: UDP<br>
 Identifier: MP<br>
 Format: JSON
 ```
-confirm_id:         uint16
 progress:           uint8
 mod_name:           char-array
 ```
@@ -147,7 +135,6 @@ Note: Progress is in %. 100% means ready to mount.
 
 ### Server Data
 **PlayerData packet**<br>
-Protocol: UCP<br>
 Identifier: PD
 ```json
 {
@@ -164,24 +151,24 @@ Note: Each entry in the player list looks as following:
 
 ### Gameplay
 **VehicleSpawn packet**<br>
-Protocol: UDP<br>
 Identifier: VS
+Format: Binary
 ```
 confirm_id:         uint16
 vehicle_data:       char-array (json)
 ```
 
 **VehicleConfirm packet**<br>
-Protocol: UDP<br>
 Identifier: VA
+Format: Binary
 ```
 confirm_id:         uint16
 vehicle_id:         uint16
 ```
 
 **VehicleDelete packet**<br>
-Protocol: UDP<br>
 Identifier: VR
+Format: Binary
 ```
 confirm_id:         uint16
 vehicle_id:         uint16
@@ -189,15 +176,15 @@ steam_id:           uint64
 ```
 
 **VehicleUpdate packet**<br>
-Protocol: UDP<br>
 Identifier: VU
+Format: Binary
 ```
 vehicle_data:       char-array (json)
 ```
 
 **VehicleDisplay packet**<br>
-Protocol: UDP<br>
 Identifier: VD
+Format: Binary
 ```
 vehicle_data:       char-array (json)
 ```
