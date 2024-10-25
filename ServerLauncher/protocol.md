@@ -90,8 +90,17 @@ vehicle_data:       char-array (json)
 
 **VehicleConfirm packet**<br>
 Protocol: TCP<br>
-Identifier: VC
+Identifier: VA
 ```
 confirm_id:         uint16
+vehicle_id:         uint16
+obj_id:             uint64
+```
+
+**VehicleDelete packet**<br>
+Protocol: TCP<br>
+Identifier: VD
+```
+player_id:          uint64
 vehicle_id:         uint16
 ```
