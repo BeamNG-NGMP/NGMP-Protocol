@@ -15,7 +15,8 @@ TODO: Provide an example packet here.
 ### Startup
 1. C->L - ClientInfo packet
 2. L->C - Version packet
-3. L->C - AuthenticationInfo packet
+3. C->L - LoginRequest packet
+4. L->C - AuthenticationInfo packet
 
 ### Join Server
 1. C->L - JoinServer packet
@@ -61,6 +62,13 @@ Format: JSON
 confirm_id:         uint16
 client_version:     uint16
 userfolder:         char-array
+```
+
+**LoginRequest packet**<br>
+Identifier: LR<br>
+Format: Binary
+```
+confirm_id:         uint16
 ```
 
 **AuthenticationInfo packet**<br>
