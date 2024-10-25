@@ -87,3 +87,11 @@ Identifier: VS
 confirm_id:         uint16
 vehicle_data:       char-array (json)
 ```
+
+**VehicleConfirm packet**<br>
+Protocol: TCP<br>
+Identifier: VC
+```
+confirm_id:         uint16
+vehicle_id:         uint16
+```
