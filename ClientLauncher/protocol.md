@@ -147,7 +147,7 @@ Note: Progress is in %. 100% means ready to mount.
 
 ### Server Data
 **PlayerData packet**<br>
-Protocol: TCP<br>
+Protocol: UCP<br>
 Identifier: PD
 ```json
 {
