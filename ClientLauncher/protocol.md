@@ -25,6 +25,14 @@ TODO: Provide an example packet here.
 5. L->C - LoadMap packet
 6. C->L - Confirmation packet
 
+### Vehicle
+1. C->L - VehicleSpawn packet
+2. L->C - VehicleConfirm packet
+3. L->C - VehicleDelete packet (if vehicle invalid)
+4. C->L - VehicleUpdate packet (Repeat if needed)
+5. C->L - VehicleDisplay packet (Repeat if needed)
+6. C->L - VehicleDelete packet (Repeat if needed)
+
 ### Leave Server
 1. C->L - ExitServer packet
 
@@ -156,7 +164,7 @@ Note: Each entry in the player list looks as following:
 
 ### Gameplay
 **VehicleSpawn packet**<br>
-Protocol: TCP<br>
+Protocol: UDP<br>
 Identifier: VS
 ```
 confirm_id:         uint16
@@ -164,26 +172,33 @@ vehicle_data:       char-array (json)
 ```
 
 **VehicleConfirm packet**<br>
-Protocol: TCP<br>
-Identifier: VC
+Protocol: UDP<br>
+Identifier: VA
 ```
 confirm_id:         uint16
 vehicle_id:         uint16
 ```
 
-**VehicleUpdate packet**<br>
-Protocol: TCP<br>
-Identifier: VU
+**VehicleDelete packet**<br>
+Protocol: UDP<br>
+Identifier: VR
 ```
 confirm_id:         uint16
+vehicle_id:         uint16
+steam_id:           uint64
+```
+
+**VehicleUpdate packet**<br>
+Protocol: UDP<br>
+Identifier: VU
+```
 vehicle_data:       char-array (json)
 ```
 
 **VehicleDisplay packet**<br>
-Protocol: TCP<br>
+Protocol: UDP<br>
 Identifier: VD
 ```
-confirm_id:         uint16
 vehicle_data:       char-array (json)
 ```
-Note: This is for license plate and paints.
+Note: This is used for license plate and paints.
