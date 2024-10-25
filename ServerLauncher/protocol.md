@@ -104,3 +104,20 @@ Identifier: VD
 player_id:          uint64
 vehicle_id:         uint16
 ```
+
+**VehicleUpdate packet**<br>
+Protocol: TCP<br>
+Identifier: VU
+```
+confirm_id:         uint16
+vehicle_data:       char-array (json)
+```
+
+**VehicleDisplay packet**<br>
+Protocol: TCP<br>
+Identifier: VD
+```
+confirm_id:         uint16
+vehicle_data:       char-array (json)
+```
+Note: This is for license plate and paints.
