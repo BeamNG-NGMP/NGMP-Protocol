@@ -103,7 +103,7 @@ Identifier: VA
 ```
 confirm_id:         uint16
 vehicle_id:         uint16
-obj_id:             uint64
+obj_id:             uint32
 ```
 
 **VehicleDelete packet**<br>
