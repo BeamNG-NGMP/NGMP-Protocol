@@ -190,14 +190,16 @@ Format: Binary
 ```
 confirm_id:         uint16
 vehicle_id:         uint16
-steam_id:           uint64
+steam_id_len:       uint8
+steam_id:           char-array
 ```
 
 **VehicleUpdate packet**<br>
 Identifier: VU<br>
 Format: Binary
 ```
-steam_id:           uint64
+steam_id_len:       uint8
+steam_id:           char-array
 vehicle_id:         uint16
 runtime_data:       char-array (json)
 ```
@@ -206,7 +208,8 @@ runtime_data:       char-array (json)
 Identifier: VT<br>
 Format: Binary
 ```
-steam_id:           uint64
+steam_id_len:       uint8
+steam_id:           char-array
 vehicle_id:         uint16
 transform:          char-array (json)
 ```

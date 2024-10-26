@@ -138,7 +138,8 @@ Note: The transform data looks as following:
 Protocol: UDP<br>
 Identifier: VU
 ```
-confirm_id:         uint16
+player_id:          uint64
+vehicle_id:         uint16
 runtime_data:       char-array (json)
 ```
 
