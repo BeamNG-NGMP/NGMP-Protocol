@@ -168,7 +168,7 @@ Note: Each entry in the player list looks as following:
 
 ### Gameplay
 **VehicleSpawn packet**<br>
-Identifier: VS
+Identifier: VS<br>
 Format: Binary
 ```
 confirm_id:         uint16
@@ -176,7 +176,7 @@ vehicle_data:       char-array (json)
 ```
 
 **VehicleConfirm packet**<br>
-Identifier: VA
+Identifier: VA<br>
 Format: Binary
 ```
 confirm_id:         uint16
@@ -184,7 +184,7 @@ vehicle_id:         uint16
 ```
 
 **VehicleDelete packet**<br>
-Identifier: VR
+Identifier: VR<br>
 Format: Binary
 ```
 confirm_id:         uint16
@@ -193,14 +193,35 @@ steam_id:           uint64
 ```
 
 **VehicleUpdate packet**<br>
-Identifier: VU
+Identifier: VU<br>
 Format: Binary
 ```
+steam_id:           uint64
+vehicle_id:         uint16
 runtime_data:       char-array (json)
 ```
 
+**VehicleTransform packet**<br>
+Identifier: VT<br>
+Format: Binary
+```
+steam_id:           uint64
+vehicle_id:         uint16
+transform:          char-array (json)
+```
+
+Note: The transform data looks as following:
+```json
+{
+    "pos": [1,1,1],
+    "rot": [1,1,1,1],
+    "vel": [1,1,1],
+    "rvel": [1,1,1]
+}
+```
+
 **VehicleDisplay packet**<br>
-Identifier: VD
+Identifier: VD<br>
 Format: Binary
 ```
 vehicle_data:       char-array (json)
