@@ -94,6 +94,7 @@ Identifier: VS
 confirm_id:         uint16
 vehicle_data:       char-array (json)
 ```
+Note: The json data will have 2 extra fields over the standard vehicle data, namely `steam_id` containing the steam id of the spawner as a string, and `veh_id` containing the vehicle id (uint16).
 
 **VehicleConfirm packet**<br>
 Protocol: TCP<br>
@@ -117,7 +118,7 @@ Protocol: TCP<br>
 Identifier: VU
 ```
 confirm_id:         uint16
-vehicle_data:       char-array (json)
+runtime_data:       char-array (json)
 ```
 
 **VehicleDisplay packet**<br>
