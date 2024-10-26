@@ -46,6 +46,13 @@ Format: Binary
 confirm_id:         uint16
 ```
 
+**PlayerKick packet**<br>
+Identifier: PK<br>
+Format: Binary
+```
+reason:             char-array
+```
+
 ### Handshake/early connection
 **Version packet**<br>
 Identifier: VC<br>
