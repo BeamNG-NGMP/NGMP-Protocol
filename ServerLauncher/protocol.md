@@ -92,6 +92,7 @@ Protocol: TCP<br>
 Identifier: VS
 ```
 confirm_id:         uint16
+obj_id:             uint64
 vehicle_data:       char-array (json)
 ```
 Note: The json data will have 2 extra fields over the standard vehicle data, namely `steam_id` containing the steam id of the spawner as a string, and `veh_id` containing the vehicle id (uint16).
