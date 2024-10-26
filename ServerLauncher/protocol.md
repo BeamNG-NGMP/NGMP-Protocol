@@ -27,6 +27,13 @@ Identifier: CC
 confirm_id:         uint16
 ```
 
+**PlayerKick packet**<br>
+Protocol: TCP<br>
+Identifier: PK
+```
+reason:             char-array
+```
+
 ### Handshake/early connection
 **Version packet**<br>
 Protocol: TCP<br>
