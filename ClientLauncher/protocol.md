@@ -196,7 +196,7 @@ steam_id:           uint64
 Identifier: VU
 Format: Binary
 ```
-vehicle_data:       char-array (json)
+runtime_data:       char-array (json)
 ```
 
 **VehicleDisplay packet**<br>
