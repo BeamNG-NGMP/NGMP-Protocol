@@ -181,7 +181,7 @@ Format: Binary
 ```
 confirm_id:         uint16
 vehicle_id:         uint16
-object_id:          uint64
+object_id:          uint32
 ```
 
 **VehicleDelete packet**<br>
