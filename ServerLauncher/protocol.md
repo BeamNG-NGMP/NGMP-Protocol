@@ -113,8 +113,28 @@ player_id:          uint64
 vehicle_id:         uint16
 ```
 
+**VehicleTransform packet**<br>
+Protocol: UDP<br>
+Identifier: VT
+```
+player_id:          uint64
+vehicle_id:         uint16
+transform:          char-array (json)
+```
+Note: The transform data looks as following:
+```json
+{
+    "pos": [1,1,1],
+    "rot": [1,1,1,1],
+    "vel": [1,1,1],
+    "rvel": [1,1,1],
+    "ms": 0
+}
+```
+`ms` is just the timestamp (in milliseconds) of the packet since joining the server, stored as a uint32. This lets you play for ~49.7 days before the timestamp overflows.
+
 **VehicleUpdate packet**<br>
-Protocol: TCP<br>
+Protocol: UDP<br>
 Identifier: VU
 ```
 confirm_id:         uint16
