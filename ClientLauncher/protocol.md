@@ -40,114 +40,113 @@ TODO: Provide an example packet here.
 ## Packet types
 ### Generic
 **Confirmation packet**<br>
-Identifier: CC<br>
-Format: Binary
-```
-confirm_id:         uint16
+Identifier: CC
+```json
+{
+    "confirm_id": 0
+}
 ```
 
 **PlayerKick packet**<br>
-Identifier: PK<br>
-Format: Binary
-```
-reason:             char-array
+Identifier: PK
+```json
+{
+    "reason": "/"
+}
 ```
 
 ### Handshake/early connection
 **Version packet**<br>
-Identifier: VC<br>
-Format: Binary
-```
-confirm_id:         uint16
-protocol_version:   uint16
+Identifier: VC
+```json
+{
+    "protocol_version": 1
+}
 ```
 
 **ClientInfo packet**<br>
-Identifier: CI<br>
-Format: JSON
-```
-confirm_id:         uint16
-client_version:     uint16
-userfolder:         char-array
+Identifier: CI
+```json
+{
+    "client_version": 1,
+    "userfolder": "C:/Users..."
+}
 ```
 
 **LoginRequest packet**<br>
-Identifier: LR<br>
-Format: Binary
-```
-confirm_id:         uint16
+Identifier: LR
+```json
+{
+    "confirm_id": 0
+}
 ```
 
 **AuthenticationInfo packet**<br>
-Identifier: AI<br>
-Format: JSON
+Identifier: AI
+```json
+{
+    "avatar_hash": "408fa5f4aa2011080a86aef18f69395a3b2a661d",
+    "player_name": "Zeit",
+    "steam_id": "76561198892918470",
+    "success": true
+}
 ```
-confirm_id:         uint16
-avatar_hash:        char-array
-success:            bool
-steam_id:           uint64
-player_name:        char-array
-```
-Note: This should never contain any important data as the authenticator is Steam.
+Note: This never contains any important data as the authenticator is Steam.
 Authentication is handled solely by the Launcher. The client receives this packet for cosmetic reasons.
 
 ### Post-auth connection
 **JoinServer packet**<br>
-Identifier: HJ<br>
-Format: Binary
-```
-confirm_id:         uint16
-ip_address:         char-array
+Identifier: HJ
+```json
+{
+    "ip_address": "127.0.0.1:42630"
+}
 ```
 
 **ConnectionError packet**<br>
-Identifier: CE<br>
-Format: Binary
-```
-confirm_id:         uint16
-error:              char-array
-```
-
-**ServerInfo packet**<br>
-Identifier: HI<br>
-Format: Binary
-```
-confirm_id:         uint16
-http_port:          uint16
+Identifier: CE
+```json
+{
+    "error": "/"
+}
 ```
 
 **ExitServer packet**<br>
-Identifier: HX<br>
-Format: Binary
-```
-confirm_id:         uint16
+Identifier: HX
+```json
+{
+    "confirm_id": 0
+}
 ```
 
 **LoadMap packet**<br>
-Identifier: LM<br>
-Format: Binary
+Identifier: LM
+```json
+{
+    "map_string": "/levels/gridmap_v2/info.json"
+}
 ```
-confirm_id:         uint16
-map_string:         char-array
-```
-Note: The map-string should look something like "/levels/west_coast_usa/info.json"
+Note: The map-string should always look something like "/levels/west_coast_usa/info.json".
+Some maps may use an old .mis format. In this case the map path corresponds to the .mis file.
 
 **ModRequest packet**<br>
-Identifier: MR<br>
-Format: Binary
-```
-confirm_id:         uint16
-mod_name:           char-array
+Identifier: MR
+```json
+{
+    "mod_name": "mod.zip"
+}
 ```
 
 **ModProgress packet**<br>
-Identifier: MP<br>
-Format: JSON
+Identifier: MP
+```json
+{
+    "progress": 0.54321,
+    "mod_name": "mod.zip"
+}
 ```
-progress:           uint8
-mod_name:           char-array
-```
-Note: Progress is in %. 100% means ready to mount.
+Note: Progress is in %.
+0.5 ≙ 50%; 1 ≙ 100%
 
 ### Server Data
 **PlayerData packet**<br>
@@ -162,72 +161,91 @@ Note: Each entry in the player list looks as following:
 {
     "avatar_hash": "bcf7541f4566aaf4ad5ffd35764def2f035acb25"
     "name": "big gaming 123",
-    "steam_id": 890123489189
+    "steam_id": "890123489189"
 }
 ```
 
 ### Gameplay
 **VehicleSpawn packet**<br>
-Identifier: VS<br>
-Format: Binary
+Identifier: VS
+```json
+{
+    "confirm_id": 0,
+    "vehicle_data": [
+        "Jbeam": "bastion",
+        "object_id": 32512,
+        "paints": "...",
+        "partConfig": "...",
+        "pos": [1,1,1],
+        "rot": [1,1,1,1],
+    ]
+}
 ```
-confirm_id:         uint16
-vehicle_data:       char-array (json)
-```
+Note: "paints" and "partConfig" are serialized strings for use in BeamNG only. They most likely cannot be read by other means.
 
 **VehicleConfirm packet**<br>
-Identifier: VA<br>
-Format: Binary
-```
-confirm_id:         uint16
-vehicle_id:         uint16
-object_id:          uint32
+Identifier: VA
+```json
+{
+    "confirm_id": 0,
+    "object_id": 32512,
+    "vehicle_id": 0,
+}
 ```
 
 **VehicleDelete packet**<br>
-Identifier: VR<br>
-Format: Binary
-```
-confirm_id:         uint16
-vehicle_id:         uint16
-steam_id_len:       uint8
-steam_id:           char-array
+Identifier: VR
+```json
+{
+    "steam_id": "76561198892918470"
+    "vehicle_id": 0
+}
 ```
 
 **VehicleUpdate packet**<br>
-Identifier: VU<br>
-Format: Binary
+Identifier: VU
+```json
+{
+    "steam_id": "76561198892918470",
+    "runtime_data": "<json encoded data>",
+    "vehicle_id": 0
+}
 ```
-steam_id_len:       uint8
-steam_id:           char-array
-vehicle_id:         uint16
-runtime_data:       char-array (json)
-```
+Note: "runtime_data" is a JSON encoded string in of itself.
+This is done for performance reasons to avoid an extra encode + decode step during transfer from GELua to VLua.
 
 **VehicleTransform packet**<br>
-Identifier: VT<br>
-Format: Binary
+Identifier: VT
+```json
+{
+    "steam_id": "76561198892918470",
+    "transform": "<json encoded data>",
+    "vehicle_id": 0
+}
 ```
-steam_id_len:       uint8
-steam_id:           char-array
-vehicle_id:         uint16
-transform:          char-array (json)
-```
+Note: "transform" is a JSON encoded string in of itself.
+This is done for performance reasons to avoid an extra encode + decode step during transfer from GELua to VLua.
 
 Note: The transform data looks as following:
 ```json
 {
     "pos": [1,1,1],
     "rot": [1,1,1,1],
-    "vel": [1,1,1],
-    "rvel": [1,1,1]
+    "rvel": [1,1,1],
+    "vel": [1,1,1]
 }
 ```
 
 **VehicleDisplay packet**<br>
-Identifier: VD<br>
-Format: Binary
+Identifier: VD
+```json
+{
+    "steam_id": "76561198892918470",
+    "dislay_data": {
+        "licenseText": "Zeit",
+        "paints": "..."
+    },
+    "vehicle_id": 0
+}
 ```
-vehicle_data:       char-array (json)
-```
-Note: This is used for license plate and paints.
+Note: "paints" is a serialized string for use in BeamNG only. It most likely cannot be read by other means.
