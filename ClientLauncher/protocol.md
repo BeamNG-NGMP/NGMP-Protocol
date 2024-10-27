@@ -47,14 +47,6 @@ Identifier: CC
 }
 ```
 
-**PlayerKick packet**<br>
-Identifier: PK
-```json
-{
-    "reason": "/"
-}
-```
-
 ### Handshake/early connection
 **Version packet**<br>
 Identifier: VC
@@ -73,14 +65,6 @@ Identifier: CI
 }
 ```
 
-**LoginRequest packet**<br>
-Identifier: LR
-```json
-{
-    "confirm_id": 0
-}
-```
-
 **AuthenticationInfo packet**<br>
 Identifier: AI
 ```json
@@ -93,6 +77,9 @@ Identifier: AI
 ```
 Note: This never contains any important data as the authenticator is Steam.
 Authentication is handled solely by the Launcher. The client receives this packet for cosmetic reasons.
+
+**LoginRequest packet**<br>
+Identifier: LR
 
 ### Post-auth connection
 **JoinServer packet**<br>
@@ -113,9 +100,12 @@ Identifier: CE
 
 **ExitServer packet**<br>
 Identifier: HX
+
+**PlayerKick packet**<br>
+Identifier: PK
 ```json
 {
-    "confirm_id": 0
+    "reason": "/"
 }
 ```
 
@@ -133,7 +123,7 @@ Some maps may use an old .mis format. In this case the map path corresponds to t
 Identifier: MR
 ```json
 {
-    "mod_name": "mod.zip"
+    "mod_name": "mod"
 }
 ```
 
@@ -142,7 +132,7 @@ Identifier: MP
 ```json
 {
     "progress": 0.54321,
-    "mod_name": "mod.zip"
+    "mod_name": "mod"
 }
 ```
 Note: Progress is in %.
@@ -171,6 +161,8 @@ Identifier: VS
 ```json
 {
     "confirm_id": 0,
+    "steam_id": "76561198892918470",
+    "vehicle_id": 0,
     "vehicle_data": [
         "Jbeam": "bastion",
         "object_id": 32512,
@@ -242,7 +234,7 @@ Identifier: VD
 {
     "steam_id": "76561198892918470",
     "dislay_data": {
-        "licenseText": "Zeit",
+        "license_text": "Zeit",
         "paints": "..."
     },
     "vehicle_id": 0
