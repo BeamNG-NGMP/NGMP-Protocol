@@ -90,12 +90,21 @@ Note: Each entry in the player list looks as following:
 **VehicleSpawn packet**<br>
 Protocol: TCP<br>
 Identifier: VS
+```json
+{
+    "confirm_id": 0,
+    "steam_id": 76561198892918470,
+    "vehicle_id": 0,
+    "vehicle_data": [
+        "Jbeam": "bastion",
+        "object_id": 32512,
+        "paints": "...",
+        "partConfig": "...",
+        "pos": [1,1,1],
+        "rot": [1,1,1,1]
+    ]
+}
 ```
-confirm_id:         uint16
-obj_id:             uint64
-vehicle_data:       char-array (json)
-```
-Note: The json data will have 2 extra fields over the standard vehicle data, namely `steam_id` containing the steam id of the spawner as a string, and `veh_id` containing the vehicle id (uint16).
 
 **VehicleConfirm packet**<br>
 Protocol: TCP<br>

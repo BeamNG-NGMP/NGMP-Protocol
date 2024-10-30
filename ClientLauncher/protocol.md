@@ -149,7 +149,7 @@ Identifier: PD
 Note: Each entry in the player list looks as following:
 ```json
 {
-    "avatar_hash": "bcf7541f4566aaf4ad5ffd35764def2f035acb25"
+    "avatar_hash": "bcf7541f4566aaf4ad5ffd35764def2f035acb25",
     "name": "big gaming 123",
     "steam_id": "890123489189"
 }
@@ -169,7 +169,7 @@ Identifier: VS
         "paints": "...",
         "partConfig": "...",
         "pos": [1,1,1],
-        "rot": [1,1,1,1],
+        "rot": [1,1,1,1]
     ]
 }
 ```
