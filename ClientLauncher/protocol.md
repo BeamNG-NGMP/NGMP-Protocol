@@ -52,6 +52,7 @@ Identifier: CC
 Identifier: VC
 ```json
 {
+    "confirm_id": 0,
     "protocol_version": 1
 }
 ```
@@ -113,6 +114,7 @@ Identifier: PK
 Identifier: LM
 ```json
 {
+    "confirm_id": 0
     "map_string": "/levels/gridmap_v2/info.json"
 }
 ```
