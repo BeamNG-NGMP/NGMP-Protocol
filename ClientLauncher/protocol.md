@@ -254,3 +254,12 @@ Identifier: VP
 }
 ```
 Note: "paints" is a serialized string for use in BeamNG only. It most likely cannot be read by other means.
+
+
+**ChatMessage packet**<br>
+Identifier: CM
+```json
+{
+    "message": "<base64 encoded data>"
+}
+```
