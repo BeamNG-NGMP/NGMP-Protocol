@@ -260,6 +260,7 @@ Note: "paints" is a serialized string for use in BeamNG only. It most likely can
 Identifier: CM
 ```json
 {
+    "steam_id": "76561198892918470",
     "message": "<base64 encoded data>"
 }
 ```
