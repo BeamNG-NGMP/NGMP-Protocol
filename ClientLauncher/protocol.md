@@ -187,8 +187,17 @@ Identifier: VA
 }
 ```
 
-**VehicleDelete packet**<br>
+**VehicleReset packet**<br>
 Identifier: VR
+```json
+{
+    "steam_id": "76561198892918470"
+    "vehicle_id": 0
+}
+```
+
+**VehicleDelete packet**<br>
+Identifier: VD
 ```json
 {
     "steam_id": "76561198892918470"
@@ -231,7 +240,7 @@ Note: The transform data looks as following:
 ```
 
 **VehicleDisplay packet**<br>
-Identifier: VD
+Identifier: VP
 ```json
 {
     "steam_id": "76561198892918470",
