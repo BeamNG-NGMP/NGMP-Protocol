@@ -191,7 +191,9 @@ Identifier: VA
 Identifier: VR
 ```json
 {
-    "steam_id": "76561198892918470"
+    "pos": [1,1,1],
+    "rot": [1,1,1,1],
+    "steam_id": "76561198892918470",
     "vehicle_id": 0
 }
 ```
@@ -200,7 +202,7 @@ Identifier: VR
 Identifier: VD
 ```json
 {
-    "steam_id": "76561198892918470"
+    "steam_id": "76561198892918470",
     "vehicle_id": 0
 }
 ```
